@@ -20,65 +20,7 @@ console.log(anotherMessage);
 popUp = prompt("Press enter..");
 console.log("Let's do this");
 
-// function play() {
-//   minRange = 1;
-//   maxRange = 2;
-//   userLevel = 1;
-//   userPoints = 0;
-//   noOfLives = 3;
-//   answer = randomAnswer();
-
-//   conditions();
-
-//   function conditions() {
-//     let userGuess = parseInt(prompt(`Enter a number between ${minRange} and ${maxRange}`));
-//     /** for (let i = 2; i < 10; i++) {
-//        const answer = Math.floor(Math.random() * i) + 1;
-//        let userGuess = parseInt(prompt(`Enter a number between ${minRange} and ${i}`));*/
-
-//     while (userGuess !== answer) {
-//       if (noOfLives <= 0) {
-//         userLoose();
-//         //break;
-//       } else if (Number.isNaN(userGuess)) {
-//         prompt(`Please enter a number between ${minRange} and ${maxRange} 😒..`);
-//       } else if (userGuess < answer) {
-//         prompt("Your guess is too low, guess higher😪..");
-//       } else if (userGuess > answer) {
-//         prompt("Your guess is too high, guess lower🤭..");
-//       } else {
-//         userWin();
-//         //break;
-//         //console.log("Press Control+C to exit the game");
-//       }
-//     }
-//   }
-
-//   function userWin() {
-//     console.log("Yaaay you got my number right !!😍");
-//     prompt("Press Enter...");
-//     userLevel++;
-//     userPoints++;
-//     maxRange++;
-//     //console.log(userPoints, userLevel);
-//     answer = randomAnswer();
-
-//     conditions();
-
-//   }
-
-//   function userLoose() {
-//     console.log("You've run out of lives, better luck next time😭");
-
-//     console.log(userPoints + userLevel);
-//     return;
-//   }
-
-//   function randomAnswer() {
-//     return Math.floor(Math.random() * maxRange) + 1;
-//   }
-// }
-
+play();
 
 function play() {
   minRange = 1;
@@ -87,11 +29,13 @@ function play() {
   userPoints = 0;
   noOfLives = 3;
   answer = randomNumber();
-
+  
+//sconsole.log(`Point = ${userPoints} Level = ${userLevel}`);
+  
   conditions();
 
   function conditions() {
-    let userGuess = parseInt(prompt(`Enter a number between ${minRange} and ${maxRange}`));
+    let userGuess = prompt(`Enter a number between ${minRange} and ${maxRange}`);
 
     while (userGuess !== answer) {
       if (noOfLives <= 0) {
@@ -111,7 +55,6 @@ function play() {
       }
     }
   }
-
   function userWin() {
     console.log("Yaaay you got my number right !!😍");
     console.log(`Point = ${userPoints} Level = ${userLevel}`);
@@ -119,9 +62,9 @@ function play() {
     userLevel++;
     userPoints++;
     maxRange++;
-    answer = randomNumberNumber();
+    answer = randomNumber();
 
-    noOfLives = 3 + Math.floor(userLevel / userPoin);
+    //noOfLives = 3 + Math.floor(userLevel / 3);
 
     conditions();
   }
@@ -134,7 +77,6 @@ function play() {
   }
 
   function randomNumber() {
-    return Math.floor(Math.random() * maxRange) + 1 ;
+    return Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
   }
 }
-play()
